@@ -1,7 +1,7 @@
-import { Cat } from "./models/Cat";
-import { Dog } from "./models/Dog";
-import { Parrot } from "./models/Parrot";
-import { Saapjen } from "./models/Saapjen";
+import { Cat } from "./models/Cat.js";
+import { Dog } from "./models/Dog.js";
+import { Parrot } from "./models/Parrot.js";
+import { Saapjen } from "./models/Saapjen.js";
 class Zoo {
     constructor() {
         this._animals = new Array();
