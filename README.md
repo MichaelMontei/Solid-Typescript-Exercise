@@ -67,7 +67,7 @@ toshii.makeSound(); // -> wuff wuff
 This will work fine but actually this is NOT the WAY! 
 Let me show u in Mandalorian Style the right way! 
 
-![](../../../Downloads/4pw07x.jpg)
+![](4pw07x.jpg)
 
 As I said, both classes have the same properties and methods, so it makes sense to inherit this from a parent class.
 Let’s have a look at a better way:
@@ -104,6 +104,8 @@ const toshii: Dog = new Dog('Pocky');
 toshii.makeSound(); // -> wuff wuff
 ```
 Jeez! This looks alot like our Exercise 1.O :)
+
+## 3. Inheritance
 
 
 ## Exercises
