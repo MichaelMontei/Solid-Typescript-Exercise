@@ -195,7 +195,7 @@ This all probably means very little to you, which is why we are going to see eac
 ## Exercises
 - [X] 0.S
 - [X] 1.0
-- [ ] 2.L
+- [X] 2.L
 - [ ] 3.I
 - [ ] 4.D
 ---
@@ -209,14 +209,14 @@ This all probably means very little to you, which is why we are going to see eac
     - Inside the Engine class we make 2 methods addFuel and addMileage
 
 2. 1.O
-   - Make an Animal class so we can extend other child classes from this parent like Dog, Cat, Parrot and ur own made Animal {Saapjen}.
-   - In the Animal class I pass three protected properties cause we will need to use these properties from derived classes. Properties: {name, type and sound}.
+   - Make an Animal class, so we can extend other child classes from this parent like Dog, Cat, Parrot and ur own made Animal {Saapjen}.
+   - In the Animal class I pass three protected properties because we will need to use these properties from derived classes. Properties: {name, type and sound}.
    - I import the Animal class inside the other classes. (import {Animal} from "./Animal";)
    - Afterwards we make sure that we export the class derived from the Animal class.
    - Inside every breed we make a constructor containing the protected properties from the Animal class.
    - In our new.ts file we all import all of our models
    - We make a new class Zoo (we make an empty array and make a method to addAnimal to this array)
-   - Now we can make a new Zoo -> and add an animal with it's properties {example: zoo.addAnimal(new Cat("Nala", "Miaaaauw", "Cat"));}
+   - Now we can make a new Zoo -> and add an animal with its properties {example: zoo.addAnimal(new Cat("Nala", "Miaaaauw", "Cat"));}
    - After we loop over all the animals and print the animal type + the animal sound in our document.querySelector('#target').
 
 3. 2.L
@@ -226,3 +226,11 @@ This all probably means very little to you, which is why we are going to see eac
    - We can now make our first variableDiscount class and extend it from the parent Discount class and implement the interface
    - Inside these classes we can now call those methods from the interface and tell them what we want them to do
    - We do the same for the "fixedDiscount" and "noDiscount" class!
+
+4. 3.I
+   - First I made all the export interfaces for Password / Facebook / Google.
+   - Afterwards I've made separated classes for the User / Admin / Bot and made sure all interfaces were imported and also the classes are exported, so we can use them inside our new.ts for the Logic.
+   - Made the new.ts file and imported all the models I've made in the previous step. 
+   - (Still TO DO)
+   - Write logic in new.ts to separate User, Admin / Bot
+   - 
