@@ -5,7 +5,7 @@ Learn Typescript and SOLID Typescript.
 
 # What are these 4 Pillars of OOP
 
-![pillars](readme images/img_4.png)
+![pillars](images/img_4.png)
 
 ## 1. Abstraction
 I’m a coffee addict. So, when I wake up in the morning, I go into my kitchen, switch on the coffee machine and make coffee. Sounds familiar?
@@ -68,7 +68,7 @@ toshii.makeSound(); // -> wuff wuff
 This will work fine but actually this is NOT the WAY! 
 Let me show u in Mandalorian Style the right way! 
 
-![Mandalorian](readme images/4pw07x.jpg)
+![Mandalorian](images/4pw07x.jpg)
 
 As I said, both classes have the same properties and methods, so it makes sense to inherit this from a parent class.
 Let’s have a look at a better way:
@@ -109,7 +109,7 @@ Jeez! This looks alot like our Exercise 1.O :)
 ## 3. Inheritance
 A class can reuse the properties and methods of another class. This is called inheritance in TypeScript. The class which inherits properties and methods is called the child class. And the class whose properties and methods are inherited is known as the parent class.
 
-![inheritance](readme images/68747470733a2f2f7777772e6a61766174706f696e742e636f6d2f696d616765732f636f72652f74797065736f66696e6865726974616e63652e6a7067.jpg)
+![inheritance](images/68747470733a2f2f7777772e6a61766174706f696e742e636f6d2f696d616765732f636f72652f74797065736f66696e6865726974616e63652e6a7067.jpg)
 
 I made a quick example explaining a single Inheritance in code:
 ```js
