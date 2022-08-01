@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Animal = void 0;
-class Animal {
+export class Animal {
     constructor(name, sound, type) {
         this._name = name;
         this._sound = sound;
@@ -17,4 +14,3 @@ class Animal {
         return this._type;
     }
 }
-exports.Animal = Animal;

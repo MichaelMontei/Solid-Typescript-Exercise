@@ -60,5 +60,6 @@ zoo.addAnimal(new Cat);
 zoo.addAnimal(new Dog);
 zoo.addAnimal(new Parrot);
 zoo.animals.forEach((animal) => {
+    // @ts-ignore
     document.querySelector('#target').innerHTML += (animal.type + ": " + zoo.makeSound(animal) + "<br>");
 });
