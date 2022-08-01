@@ -30,8 +30,80 @@ How to Create it Without Abstraction
     Have a button with the title "Clean any dirty cups"
     And all the other buttons -> Boo! Still no coffee
 
-## 2. Encapsulation
+## 2. Polymorphism
+Imagine we have two animal classes, one class is called Dog, the other class is called Cat. Both classes should have the same properties and methods.
+```js
+class Dog {
+public name: string;
 
+constructor(name: string) {
+this.name = name;
+}
+
+public makeSound(): void {
+process.stdout.write('wuff wuff\n');
+}
+}
+
+class Cat {
+public name: string;
+
+constructor(name: string) {
+this.name = name;
+}
+
+public makeSound(): void {
+process.stdout.write('meow meow\n');
+}
+}
+
+const pocky: Cat = new Cat('Pocky');
+pocky.makeSound(); // -> meow meow
+
+const toshii: Dog = new Dog('Pocky');
+toshii.makeSound(); // -> wuff wuff
+```
+
+This will work fine but actually this is NOT the WAY! 
+Let me show u in Mandalorian Style the right way! 
+
+![](../../../Downloads/4pw07x.jpg)
+
+As I said, both classes have the same properties and methods, so it makes sense to inherit this from a parent class.
+Let’s have a look at a better way:
+
+```js
+class Animal {
+public name: string;
+
+constructor(name: string) {
+this.name = name;
+}
+
+public makeSound(): void {
+process.stdout.write('generic animal sound\n');
+}
+}
+
+export class Dog extends Animal {
+public makeSound(): void {
+process.stdout.write('wuff wuff\n');
+}
+}
+
+class Cat extends Animal {
+public makeSound(): void {
+process.stdout.write('meow meow\n');
+}
+}
+
+const pocky: Cat = new Cat('Pocky');
+pocky.makeSound(); // -> meow meow
+
+const toshii: Dog = new Dog('Pocky');
+toshii.makeSound(); // -> wuff wuff
+```
+Jeez! This looks alot like our Exercise 1.O :)
 
 
 ## Exercises
