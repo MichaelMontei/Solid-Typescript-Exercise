@@ -220,4 +220,9 @@ This all probably means very little to you, which is why we are going to see eac
    - After we loop over all the animals and print the animal type + the animal sound in our document.querySelector('#target').
 
 3. 2.L
-   -
+   - In this Exercise I had to go lookup what an interface is -> This can have properties but also Methods
+   - So we take the two methods to calculate the discounts called "apply" and "showCalculation" from the old.ts and put them in the interface
+   - Afterwards we can make a class Discount with a value and a constructor
+   - We can now make our first variableDiscount class and extend it from the parent Discount class and implement the interface
+   - Inside these classes we can now call those methods from the interface and tell them what we want them to do
+   - We do the same for the "fixedDiscount" and "noDiscount" class!
