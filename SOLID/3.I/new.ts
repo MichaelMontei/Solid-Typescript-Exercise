@@ -1,81 +1,18 @@
-interface Password {
-    checkPassword(password: string) : boolean;
+import { User } from "./models/User";
+import { Admin } from "./models/Admin";
+import { Bot } from "./models/Bot";
 
-    // @ts-ignore
-    resetPassword();
-}
-
-interface Facebook {
-    // @ts-ignore
-    setFacebookToken(token : string);
-    getFacebookLogin(token : string) : boolean;
-}
-
-interface Google {
-    // @ts-ignore
-    setGoogleToken(token : string);
-    checkGoogleLogin(token : string) : boolean;
-}
+const passwordElement = <HTMLInputElement>document.querySelector('#password');
+const typePasswordElement = <HTMLInputElement>document.querySelector('#typePassword');
+const typeGoogleElement = <HTMLInputElement>document.querySelector('#typeGoogle');
+const typeFacebookElement = <HTMLInputElement>document.querySelector('#typeFacebook');
+const loginAsAdminElement = <HTMLInputElement>document.querySelector('#loginAsAdmin');
+const resetPasswordElement = <HTMLAnchorElement>document.querySelector('#resetPassword');
 
 // @ts-ignore
-class User implements Password, Facebook, Google {
+document.querySelector('#login-form').addEventListener('submit', (event) => {
+    event.preventDefault();
 
-    private _password : string = 'user';
-    private _facebookToken : string | undefined;
-    private _googleToken : string | undefined;
+    debugger;
 
-    checkPassword(password: string) : boolean {
-        return (password === this._password);
-    }
-
-    resetPassword() {
-        // @ts-ignore
-        this._password = prompt('What is your new password?');
-    }
-
-    getFacebookLogin(token: string | undefined) {
-        return (token === this._facebookToken);
-    }
-
-    setFacebookToken(token : string) {
-        this._facebookToken = token;
-    }
-
-    checkGoogleLogin(token: string | undefined) {
-        // return "this will not work";
-        return (token === this._googleToken);
-    }
-
-    setGoogleToken(token : string) {
-        this._googleToken = token;
-    }
-}
-
-// @ts-ignore
-class Admin implements Password {
-
-    private _password : string = "admin";
-
-    checkPassword(password: string) : boolean {
-        return (password === this._password);
-    }
-
-    resetPassword() {
-        // @ts-ignore
-        this._password = prompt('What is your new password?');
-    }
-}
-
-class Bot implements Google {
-
-    private _googleToken : string | undefined;
-
-    checkGoogleLogin(token: string | undefined) {
-        // return "this will not work";
-        return (token === this._googleToken);
-    }
-
-    setGoogleToken(token : string) {
-        this._googleToken = token;
-    }
-}
+});

@@ -58,6 +58,7 @@ const loginAsAdminElement = document.querySelector('#loginAsAdmin');
 const resetPasswordElement = document.querySelector('#resetPassword');
 let guest = new User;
 let admin = new Admin;
+// @ts-ignore
 document.querySelector('#login-form').addEventListener('submit', (event) => {
     event.preventDefault();
     let user = loginAsAdminElement.checked ? admin : guest;

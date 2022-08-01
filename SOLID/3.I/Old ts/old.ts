@@ -81,6 +81,7 @@ const resetPasswordElement = <HTMLAnchorElement>document.querySelector('#resetPa
 let guest = new User;
 let admin = new Admin;
 
+// @ts-ignore
 document.querySelector('#login-form').addEventListener('submit', (event) => {
     event.preventDefault();
 

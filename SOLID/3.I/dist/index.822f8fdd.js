@@ -532,55 +532,49 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"2PQoc":[function(require,module,exports) {
-"use strict";
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+const passwordElement = document.querySelector("#password");
+const typePasswordElement = document.querySelector("#typePassword");
+const typeGoogleElement = document.querySelector("#typeGoogle");
+const typeFacebookElement = document.querySelector("#typeFacebook");
+const loginAsAdminElement = document.querySelector("#loginAsAdmin");
+const resetPasswordElement = document.querySelector("#resetPassword");
 // @ts-ignore
-class User {
-    constructor(){
-        this._password = "user";
-    }
-    checkPassword(password) {
-        return password === this._password;
-    }
-    resetPassword() {
-        // @ts-ignore
-        this._password = prompt("What is your new password?");
-    }
-    getFacebookLogin(token) {
-        return token === this._facebookToken;
-    }
-    setFacebookToken(token) {
-        this._facebookToken = token;
-    }
-    checkGoogleLogin(token) {
-        // return "this will not work";
-        return token === this._googleToken;
-    }
-    setGoogleToken(token) {
-        this._googleToken = token;
-    }
-}
-// @ts-ignore
-class Admin {
-    constructor(){
-        this._password = "admin";
-    }
-    checkPassword(password) {
-        return password === this._password;
-    }
-    resetPassword() {
-        // @ts-ignore
-        this._password = prompt("What is your new password?");
-    }
-}
-class Bot {
-    checkGoogleLogin(token) {
-        // return "this will not work";
-        return token === this._googleToken;
-    }
-    setGoogleToken(token) {
-        this._googleToken = token;
-    }
-}
+document.querySelector("#login-form").addEventListener("submit", (event)=>{
+    event.preventDefault();
+    debugger;
+});
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["mkztJ","2PQoc"], "2PQoc", "parcelRequire94c2")
 

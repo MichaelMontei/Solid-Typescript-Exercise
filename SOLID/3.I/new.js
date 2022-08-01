@@ -1,49 +1,12 @@
-"use strict";
+const passwordElement = document.querySelector('#password');
+const typePasswordElement = document.querySelector('#typePassword');
+const typeGoogleElement = document.querySelector('#typeGoogle');
+const typeFacebookElement = document.querySelector('#typeFacebook');
+const loginAsAdminElement = document.querySelector('#loginAsAdmin');
+const resetPasswordElement = document.querySelector('#resetPassword');
 // @ts-ignore
-class User {
-    constructor() {
-        this._password = 'user';
-    }
-    checkPassword(password) {
-        return (password === this._password);
-    }
-    resetPassword() {
-        // @ts-ignore
-        this._password = prompt('What is your new password?');
-    }
-    getFacebookLogin(token) {
-        return (token === this._facebookToken);
-    }
-    setFacebookToken(token) {
-        this._facebookToken = token;
-    }
-    checkGoogleLogin(token) {
-        // return "this will not work";
-        return (token === this._googleToken);
-    }
-    setGoogleToken(token) {
-        this._googleToken = token;
-    }
-}
-// @ts-ignore
-class Admin {
-    constructor() {
-        this._password = "admin";
-    }
-    checkPassword(password) {
-        return (password === this._password);
-    }
-    resetPassword() {
-        // @ts-ignore
-        this._password = prompt('What is your new password?');
-    }
-}
-class Bot {
-    checkGoogleLogin(token) {
-        // return "this will not work";
-        return (token === this._googleToken);
-    }
-    setGoogleToken(token) {
-        this._googleToken = token;
-    }
-}
+document.querySelector('#login-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    debugger;
+});
+export {};
