@@ -3,6 +3,30 @@
 ### Objective
 Learn Typescript and SOLID Typescript.
 
+### Installation
+Typescript will transform all of your code to Javascript, making it work again in any browser (So all Typescript code is in the JS code). However, in order for this to work you will need to install a compiler.
+Luckily this is rather simple, go to the [installation page](https://www.typescriptlang.org/download) and choose the option for your OS.
+
+#### PhpStorm integration
+At this point you should no longer be surprised, but PHPStorm comes with support for TypeScript out of the box. However, in order for this to work you might need to install [node.js](https://nodejs.org/en/).
+
+There are 2 ways of working with TypesScript in your IDE, the first option is to make it so all TypeScript files are compiled the moment you change something in the file.
+To do this go to ```File | Settings | Languages & Frameworks | TypeScript```. Make sure to check the correct checkbox.
+
+![install-phpstorm-on-change](images/install-phpstorm-1.png)
+
+Another option is to click on the "compile" button at the bottom of your editor. You can then either recompile the file your are currently in, or all files in the entire project.
+![install-phpstorm-compile-button](images/install-phpstorm-2.png)
+
+### Working with Parcel
+Parcel is a web application bundler, that will compile all the JS code
+
+[You also need to install parcel](https://parceljs.org/getting-started/webapp/), after which you should be able to run `parcel index.html` in your project directory.
+
+### SOLID
+SOLID is a set of 5 principles that helps you write good OOP code, and is considered one of the leading theories for modern code.
+
+
 # What are these 4 Pillars of OOP
 
 ![pillars](images/img_4.png)
@@ -154,6 +178,19 @@ this._name = value;
 }
 }
 ```
+
+## The Mission
+This all probably means very little to you, which is why we are going to see each principle separably on small refactor exercises.
+
+* [Single Responsibility Principle](SOLID/0.S/readme.md) — Classes should have a single responsibility and thus only a single reason to change.
+* [Open–closed principle](SOLID/1.O/readme.md) — Classes and other entities should be open for extension but closed for modification.
+* [Liskov Substitution Principle](SOLID/2.L/readme.md) — Objects should be replaceable by their subtypes. See also design by contract. = polymorpism
+* [Interface Segregation Principle](SOLID/3.I/readme.md) — Interfaces should be client specific rather than general.
+* [Dependency Inversion Principle](SOLID/4.D/readme.md) — Depend on abstractions rather than concretions.
+
+## Tips
+- [Read more about solid](https://medium.com/@severinperez/maintainable-code-and-the-open-closed-principle-b088c737262)
+- [TypeScript with Solid principles](https://itnext.io/brutally-solid-typescript-ba745585f440)
 
 ## Exercises
 - [X] 0.S
