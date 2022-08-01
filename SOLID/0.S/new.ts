@@ -75,8 +75,6 @@ class Engine {
         return this._miles;
     }
 
-
-
     get fuel(): number {
         return this._fuel;
     }
@@ -100,11 +98,9 @@ class Engine {
         this._Status = false;
     }
 
-
     consumeFuel(){
         this._fuel -= 1;
     }
-
 
     addMileage(){
         this._miles += this.FUEL_MILEAGE;

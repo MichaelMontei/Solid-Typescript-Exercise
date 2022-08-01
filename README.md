@@ -44,12 +44,11 @@ How to Create it Without Abstraction
 
 ## exercise solutions
 1. 0.S
-    - 
-    - 
-    - 
-    - 
-    - 
-    - Extra challenge TO-DO
+    - Make an Engine and Radio class.
+    - Inside the Car class we make properties Engine and Radio and set this private readonly.
+    - Make a constructor for the Fuel in the Engine class.
+    - Setters and getters inside the classes!
+    - Inside the Engine class we make 2 methods addFuel and addMileage
 
 2. 1.O
    - Make an Animal class so we can extend other child classes from this parent like Dog, Cat, Parrot and ur own made Animal {Saapjen}.
@@ -63,9 +62,4 @@ How to Create it Without Abstraction
    - After we loop over all the animals and print the animal type + the animal sound in our document.querySelector('#target').
 
 3. 2.L
-
-
-
-## Steps TO DO:
-- Make an Animal class so we can extend other child classes from this parent like Dog, Cat, Parrot and ur own made Animal.
-- In the Animal class I pass three protected properties cause we will need to use these properties from derived classes. Properties: {name, type and sound} 
+   -
