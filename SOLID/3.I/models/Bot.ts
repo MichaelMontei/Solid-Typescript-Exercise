@@ -2,7 +2,7 @@ import { Google } from "./Google";
 
 export class Bot implements Google {
 
-    private _googleToken : string = "";
+    private _googleToken : string = "bot";
 
     checkGoogleLogin(token: string | undefined) {
         // return "this will not work";

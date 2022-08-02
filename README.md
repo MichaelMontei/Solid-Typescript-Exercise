@@ -196,7 +196,7 @@ This all probably means very little to you, which is why we are going to see eac
 - [X] 0.S
 - [X] 1.0
 - [X] 2.L
-- [ ] 3.I
+- [X] 3.I
 - [ ] 4.D
 ---
 
@@ -231,6 +231,10 @@ This all probably means very little to you, which is why we are going to see eac
    - First I made all the export interfaces for Password / Facebook / Google.
    - Afterwards I've made separated classes for the User / Admin / Bot and made sure all interfaces were imported and also the classes are exported, so we can use them inside our new.ts for the Logic.
    - Made the new.ts file and imported all the models I've made in the previous step. 
-   - (Still TO DO)
-   - Write logic in new.ts to separate User, Admin / Bot
+   - In the new.ts file we add all the "query-selectors" and we make a function to start listening to the login form.
+   - Here I copied the switch statement from the old.ts and replaced the conditions for every possible login format.
+
+5. 4.D
+   - 
+   - 
    - 

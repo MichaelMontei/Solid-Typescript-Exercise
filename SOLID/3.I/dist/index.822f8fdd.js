@@ -532,8 +532,9 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"2PQoc":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
+var _user = require("./models/User");
+var _admin = require("./models/Admin");
+var _bot = require("./models/Bot");
 const passwordElement = document.querySelector("#password");
 const typePasswordElement = document.querySelector("#typePassword");
 const typeGoogleElement = document.querySelector("#typeGoogle");
@@ -544,7 +545,87 @@ const resetPasswordElement = document.querySelector("#resetPassword");
 document.querySelector("#login-form").addEventListener("submit", (event)=>{
     event.preventDefault();
     debugger;
+    let user;
+    let auth = false;
+    // @ts-ignore
+    switch(true){
+        //Admin switch statement
+        case typePasswordElement.checked && loginAsAdminElement.checked:
+            user = new (0, _admin.Admin)();
+            auth = user.checkPassword(passwordElement.value);
+            break;
+        case loginAsAdminElement.checked && !typePasswordElement.checked:
+            alert("Admins can only sign in through Password");
+            break;
+        //User statements
+        case typePasswordElement.checked && !loginAsAdminElement.checked:
+            // @ts-ignore
+            user = new (0, _user.User)();
+            auth = user.checkPassword(passwordElement.value);
+            break;
+        case typeFacebookElement.checked && !loginAsAdminElement.checked:
+            // @ts-ignore
+            user = new (0, _user.User)();
+            user.setFacebookToken("secret_token_fb");
+            auth = user.getFacebookLogin("secret_token_fb");
+            break;
+        case typeGoogleElement.checked && !loginAsAdminElement.checked:
+            // @ts-ignore
+            user = new (0, _user.User)();
+            user.setGoogleToken("secret_token_google");
+            auth = user.checkGoogleLogin("secret_token_google");
+            break;
+        //Bot login statements
+        case !loginAsAdminElement.checked && typeGoogleElement.checked && passwordElement.value === "bot":
+            user = new (0, _bot.Bot)();
+            user.setGoogleToken("secret_token_google");
+            auth = user.checkGoogleLogin("secret_token_google");
+            break;
+    }
+    if (auth) alert("login success");
+    else alert("login failed");
 });
+resetPasswordElement.addEventListener("click", (event)=>{
+    event.preventDefault();
+    // @ts-ignore
+    let user = loginAsAdminElement.checked ? new (0, _admin.Admin)() : new (0, _user.User)();
+    user.resetPassword();
+});
+
+},{"./models/User":"dObh8","./models/Admin":"9CBcO","./models/Bot":"4ZNcc"}],"dObh8":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "User", ()=>User);
+class User {
+    constructor(password, facebookToken, googleToken){
+        this._password = "user";
+        this._facebookToken = "";
+        this._googleToken = "";
+        this._password = password;
+        this._facebookToken = facebookToken;
+        this._googleToken = googleToken;
+    }
+    checkPassword(password) {
+        return password === this._password;
+    }
+    resetPassword() {
+        // @ts-ignore
+        this._password = prompt("What is your new password?");
+    }
+    getFacebookLogin(token) {
+        return token === this._facebookToken;
+    }
+    setFacebookToken(token) {
+        this._facebookToken = token;
+    }
+    checkGoogleLogin(token) {
+        // return "this will not work";
+        return token === this._googleToken;
+    }
+    setGoogleToken(token) {
+        this._googleToken = token;
+    }
+}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -576,6 +657,40 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["mkztJ","2PQoc"], "2PQoc", "parcelRequire94c2")
+},{}],"9CBcO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Admin", ()=>Admin);
+class Admin {
+    constructor(){
+        this._password = "admin";
+    }
+    checkPassword(password) {
+        return password === this._password;
+    }
+    resetPassword() {
+        // @ts-ignore
+        this._password = prompt("What is your new password?");
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4ZNcc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Bot", ()=>Bot);
+class Bot {
+    constructor(){
+        this._googleToken = "bot";
+    }
+    checkGoogleLogin(token) {
+        // return "this will not work";
+        return token === this._googleToken;
+    }
+    setGoogleToken(token) {
+        this._googleToken = token;
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["mkztJ","2PQoc"], "2PQoc", "parcelRequire94c2")
 
 //# sourceMappingURL=index.822f8fdd.js.map

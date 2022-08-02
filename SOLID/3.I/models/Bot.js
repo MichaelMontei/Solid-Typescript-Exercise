@@ -1,6 +1,6 @@
 export class Bot {
     constructor() {
-        this._googleToken = "";
+        this._googleToken = "bot";
     }
     checkGoogleLogin(token) {
         // return "this will not work";
