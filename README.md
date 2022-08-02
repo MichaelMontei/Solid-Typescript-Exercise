@@ -238,4 +238,7 @@ This all probably means very little to you, which is why we are going to see eac
    - 
    - 
 
-
+## Things I've learned
+   - Several Errors in the browser (exports could not be defined, failed to load modules).
+   - Using Parcel and why we need it.
+   - OOP concepts and SOLID.

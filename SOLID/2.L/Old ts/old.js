@@ -74,9 +74,12 @@ class shoppingBasket {
     }
 }
 let cart = new shoppingBasket();
+// @ts-ignore
 cart.addProduct(new Product('Chair', 25, new Discount("fixed", 10)));
 //cart.addProduct(new Product('Chair', 25, new Discount("fixed", -10)));
+// @ts-ignore
 cart.addProduct(new Product('Table', 50, new Discount("variable", 25)));
+// @ts-ignore
 cart.addProduct(new Product('Bed', 100, new Discount("none")));
 const tableElement = document.querySelector('#cart tbody');
 cart.products.forEach((product) => {

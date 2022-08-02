@@ -532,63 +532,145 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"jjptJ":[function(require,module,exports) {
-"use strict";
-// @ts-ignore
-class Discount {
+var _fixedDiscount = require("./models/FixedDiscount");
+var _variableDiscount = require("./models/VariableDiscount");
+var _noDiscount = require("./models/NoDiscount");
+class Product {
+    constructor(name, price, discount){
+        this._name = name;
+        this._price = price;
+        this._discount = discount;
+    }
+    get name() {
+        return this._name;
+    }
+    get discount() {
+        return this._discount;
+    }
+    get originalPrice() {
+        return this._price;
+    }
+    //The reason we call this function "calculateX" instead of using a getter on Price is because names communicate a lot of meaning between programmers.
+    //most programmers would assume a getPrice() would be a simple display of a property that is already calculated, but in fact this function does a (more expensive) operation to calculate on the fly.
+    calculatePrice() {
+        return this._discount.apply(this._price);
+    }
+    showCalculation() {
+        return this._discount.showCalculation(this._price);
+    }
+}
+class shoppingBasket {
+    constructor(){
+        //this array only accepts Product objects, nothing else
+        this._products = [];
+    }
+    get products() {
+        return this._products;
+    }
+    addProduct(product) {
+        this._products.push(product);
+    }
+}
+let cart = new shoppingBasket();
+cart.addProduct(new Product("Chair", 25, new (0, _fixedDiscount.FixedDiscount)(10)));
+//cart.addProduct(new Product('Chair', 25, new Discount("fixed", -10)));
+cart.addProduct(new Product("Table", 50, new (0, _variableDiscount.VariableDiscount)(25)));
+cart.addProduct(new Product("Bed", 100, new (0, _noDiscount.NoDiscount)()));
+const tableElement = document.querySelector("#cart tbody");
+cart.products.forEach((product)=>{
+    let tr = document.createElement("tr");
+    let td = document.createElement("td");
+    td.innerText = product.name;
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.innerText = product.originalPrice.toFixed(2) + " \u20AC";
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.innerText = product.calculatePrice().toFixed(2) + " \u20AC";
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.innerText = product.showCalculation();
+    tr.appendChild(td);
+    tableElement.appendChild(tr);
+});
+
+},{"./models/FixedDiscount":"kyOH9","./models/VariableDiscount":"aKOxt","./models/NoDiscount":"9zN0T"}],"kyOH9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "FixedDiscount", ()=>FixedDiscount);
+class FixedDiscount {
     constructor(value){
         this._value = value;
     }
-}
-// Here we make the first class that extends from our parent class and we need to implement our interface
-class VariableDiscount extends Discount {
-    constructor(value){
-        // @ts-ignore
-        super(value);
-    }
-    // @ts-ignore
     apply(price) {
-        // @ts-ignore
-        return price - price * this._value / 100;
+        let divide = 100;
+        return price - price * this._value / divide;
     }
-    // @ts-ignore
     showCalculation(price) {
-        // @ts-ignore
         return price + " \u20AC -  " + this._value + "%";
     }
 }
-class FixedDiscount extends Discount {
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"aKOxt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "VariableDiscount", ()=>VariableDiscount);
+class VariableDiscount {
     constructor(value){
-        // @ts-ignore
-        super(value);
+        this._value = value;
     }
-    // @ts-ignore
     apply(price) {
-        // @ts-ignore
-        return Math.max(0, price - this._value);
+        let divide = 100;
+        return price - price * this._value / divide;
     }
-    // @ts-ignore
     showCalculation(price) {
-        // @ts-ignore
-        return price + "\u20AC -  " + this._value + "\u20AC (min 0 \u20AC)";
+        return price + " \u20AC -  " + this._value + "%";
     }
 }
-class NoDiscount extends Discount {
-    constructor(value){
-        // @ts-ignore
-        super(value);
-    }
-    // @ts-ignore
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9zN0T":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "NoDiscount", ()=>NoDiscount);
+class NoDiscount {
     apply(price) {
-        // @ts-ignore
         return price;
     }
-    // @ts-ignore
     showCalculation(price) {
-        // @ts-ignore
         return "No discount";
     }
 }
 
-},{}]},["4GU5N","jjptJ"], "jjptJ", "parcelRequire94c2")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["4GU5N","jjptJ"], "jjptJ", "parcelRequire94c2")
 
 //# sourceMappingURL=index.b0c958a4.js.map

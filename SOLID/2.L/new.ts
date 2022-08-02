@@ -1,73 +1,84 @@
 
-//Looked up what an interface is actually doing -> we can pass properties here, but also methods
-//So lets pass the two methods used in the old.ts
-interface Discounts {
-    apply(price : number) : number
-    showCalculation(price : number) : string
-}
+import {FixedDiscount} from "./models/FixedDiscount";
+import {VariableDiscount} from "./models/VariableDiscount";
+import {NoDiscount} from "./models/NoDiscount";
 
-// @ts-ignore
-class Discount {
 
-    protected _value: number;
+class Product {
+    private _name: string;
+    private _price: number;
+    private _discount;
 
-    constructor(value: number) {
-        this._value = value;
+
+    constructor(name: string, price: number, discount: FixedDiscount | VariableDiscount | NoDiscount) {
+        this._name = name;
+        this._price = price;
+        this._discount = discount;
+    }
+
+    get name(): string {
+        return this._name;
+    }
+
+    get discount(): FixedDiscount | VariableDiscount | NoDiscount {
+        return this._discount;
+    }
+
+    get originalPrice(): number {
+        return this._price;
+    }
+
+    //The reason we call this function "calculateX" instead of using a getter on Price is because names communicate a lot of meaning between programmers.
+    //most programmers would assume a getPrice() would be a simple display of a property that is already calculated, but in fact this function does a (more expensive) operation to calculate on the fly.
+    calculatePrice(): number {
+        return this._discount.apply(this._price);
+    }
+
+    showCalculation(): string {
+        return this._discount.showCalculation(this._price);
     }
 }
 
-// Here we make the first class that extends from our parent class and we need to implement our interface
-class VariableDiscount extends Discount implements Discounts {
+class shoppingBasket {
+    //this array only accepts Product objects, nothing else
+    private _products: Product[] = [];
 
-    constructor(value: number) {
-        // @ts-ignore
-        super(value);
+    get products(): Product[] {
+        return this._products;
     }
-    // @ts-ignore
-    apply(price : number) : number{
-        // @ts-ignore
-        return (price - (price * this._value / 100));
-    }
-    // @ts-ignore
-    showCalculation(price : number) : string{
-        // @ts-ignore
-        return price + " € -  "+ this._value +"%";
+
+    addProduct(product: Product) {
+        this._products.push(product);
     }
 }
 
-class FixedDiscount extends Discount implements Discounts {
+let cart = new shoppingBasket();
+cart.addProduct(new Product('Chair', 25, new FixedDiscount( 10)));
+//cart.addProduct(new Product('Chair', 25, new Discount("fixed", -10)));
+cart.addProduct(new Product('Table', 50, new VariableDiscount(25)));
+cart.addProduct(new Product('Bed', 100, new NoDiscount()));
 
-    constructor(value: number) {
-        // @ts-ignore
-        super(value);
-    }
-    // @ts-ignore
-    apply(price : number) : number{
-        // @ts-ignore
-        return Math.max(0, price - this._value);
-    }
-    // @ts-ignore
-    showCalculation(price : number) : string{
-        // @ts-ignore
-        return price + "€ -  "+ this._value +"€ (min 0 €)";
-    }
-}
+const tableElement = <HTMLTableElement> document.querySelector('#cart tbody');
 
-class NoDiscount extends Discount implements Discounts {
+cart.products.forEach((product: Product) => {
+    let tr = document.createElement('tr');
 
-    constructor(value: number) {
-        // @ts-ignore
-        super(value);
-    }
-    // @ts-ignore
-    apply(price : number) : number{
-        // @ts-ignore
-        return price;
-    }
-    // @ts-ignore
-    showCalculation(price : number) : string{
-        // @ts-ignore
-        return "No discount";
-    }
-}
+    let td = document.createElement('td');
+    td.innerText = product.name;
+    tr.appendChild(td);
 
+    td = document.createElement('td');
+    td.innerText = product.originalPrice.toFixed(2) + " €";
+    tr.appendChild(td);
+
+    td = document.createElement('td');
+    td.innerText = product.calculatePrice().toFixed(2) + " €";
+    tr.appendChild(td);
+
+    td = document.createElement('td');
+    td.innerText = product.showCalculation();
+    tr.appendChild(td);
+
+    tableElement.appendChild(tr);
+
+});
