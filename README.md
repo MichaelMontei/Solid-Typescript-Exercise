@@ -128,7 +128,6 @@ pocky.makeSound(); // -> meow meow
 const toshii: Dog = new Dog('Pocky');
 toshii.makeSound(); // -> wuff wuff
 ```
-Jeez! This looks alot like our Exercise 1.O :)
 
 ## 3. Inheritance
 A class can reuse the properties and methods of another class. This is called inheritance in TypeScript. The class which inherits properties and methods is called the child class. And the class whose properties and methods are inherited is known as the parent class.
