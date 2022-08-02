@@ -128,7 +128,6 @@ pocky.makeSound(); // -> meow meow
 const toshii: Dog = new Dog('Pocky');
 toshii.makeSound(); // -> wuff wuff
 ```
-Jeez! This looks alot like our Exercise 1.O :)
 
 ## 3. Inheritance
 A class can reuse the properties and methods of another class. This is called inheritance in TypeScript. The class which inherits properties and methods is called the child class. And the class whose properties and methods are inherited is known as the parent class.
@@ -231,6 +230,7 @@ This all probably means very little to you, which is why we are going to see eac
    - First I made all the export interfaces for Password / Facebook / Google.
    - Afterwards I've made separated classes for the User / Admin / Bot and made sure all interfaces were imported and also the classes are exported, so we can use them inside our new.ts for the Logic.
    - Made the new.ts file and imported all the models I've made in the previous step. 
+<<<<<<< HEAD
    - In the new.ts file we add all the "query-selectors" and we make a function to start listening to the login form.
    - Here I copied the switch statement from the old.ts and replaced the conditions for every possible login format.
 
@@ -238,3 +238,8 @@ This all probably means very little to you, which is why we are going to see eac
    - 
    - 
    - 
+=======
+   - (Still TO DO)
+   - Write logic in new.ts to separate User, Admin / Bot
+   - 
+>>>>>>> ba9ef6fa70226b3989cb79847683537beb36c770
