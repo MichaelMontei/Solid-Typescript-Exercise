@@ -181,11 +181,43 @@ this._name = value;
 ## The Mission
 This all probably means very little to you, which is why we are going to see each principle separably on small refactor exercises.
 
-* [Single Responsibility Principle](SOLID/0.S/readme.md) — Classes should have a single responsibility and thus only a single reason to change.
-* [Open–closed principle](SOLID/1.O/readme.md) — Classes and other entities should be open for extension but closed for modification.
-* [Liskov Substitution Principle](SOLID/2.L/readme.md) — Objects should be replaceable by their subtypes. See also design by contract. = polymorpism
-* [Interface Segregation Principle](SOLID/3.I/readme.md) — Interfaces should be client specific rather than general.
-* [Dependency Inversion Principle](SOLID/4.D/readme.md) — Depend on abstractions rather than concretions.
+### Single Responsibility Principle
+* [Single Responsibility Principle](SOLID/0.S/readme.md) — A class should have one, and only one, reason to change. Classes, software components and microservices that have only one responsibility are much easier to explain, understand and implement than the ones that provide a solution for everything. This reduces the number of bugs, improves your development speed, and makes your life as a software developer a lot easier. You can avoid these problems by asking a simple question before you make any changes: What is the responsibility of your class/component/microservice? 
+
+If your answer includes the word “and”, you’re most likely breaking the single responsibility principle. Then it’s better to take a step back and rethink your current approach. There is most likely a better way to implement it.
+  ![Single](images/OneJob.gif)
+![Single](images/Single.PNG)
+### Open-Closed Principle
+* [Open–closed principle](SOLID/1.O/readme.md) — Classes and other entities should be open for extension but closed for modification. The general idea of this principle is great. It tells you to write your code so that you will be able to add new functionality without changing the existing code. 
+
+The Polymorphic Open/Closed Principles uses interfaces instead of superclasses to allow different implementations which you can easily substitute without changing the code that uses them. The interfaces are closed for modifications, and you can provide new implementations to extend the functionality of your software.
+![Open](images/open.PNG)
+
+### Liskov Substitution Principle
+* [Liskov Substitution Principle](SOLID/2.L/readme.md) — Objects should be replaceable by their subtypes. See also design by contract. = polymorpism. This principal is a bit of an extension on the last, and states that an object that is a subtype of another object should be able to be replaced by its “child”, and still function properly.
+
+This essentially states that nothing in a child should alter the code it is inheriting from it’s parent, or, it should not be able to change any of the code or functionality inside of its parent.
+
+![Liskov](images/replace.gif)
+
+### Interface Segregation Principle
+* [Interface Segregation Principle](SOLID/3.I/readme.md) — Interfaces should be client specific rather than general. This principal is similar to the first one, however it has a focus on the client side of programming. Like with functions or methods, clients shouldn’t have access to the entire interface if it is not necessary for them.
+
+Instead it is recommended that, like classes, you break an interface into smaller parts, and offer only what is needed at the time. This not only makes the client experience a lot cleaner and easier, but it also makes your project so much easier to clean and update.
+![TableSet](images/Big%20interfafce.PNG)
+- To make it simple in the beginning let's try to start with a setup like this though:
+  ![TableSet](images/interface.PNG)
+
+### Dependency Inversion Principle
+* [Dependency Inversion Principle](SOLID/4.D/readme.md) — Depend on abstractions rather than concretions. This principal is probably the most difficult to understand, and is unfortunately perhaps the most essential!
+
+This principal states that when building a project, classes will likely fall into one of two categories: high level classes that are involved more with the functionality (forking, spooning, business interactions) or low level classes that deal with things like disk access or network protocols. To bring out Utensil game into this. This principal could perhaps be thought of using a chef, a client, and a waiter as a metaphor. A waiter acts as that layer of abstraction between the chef and the client so that a client isn’t expected to go into the kitchen to get their food from the chef! If the chef is changed, maybe the client will not know who to get their food from! If the client switches tables, how will the chef know where to bring the food!?
+
+Enter the waiter. The waiter acts as the level of abstraction between the server and the client. Both people can function at their jobs: chef cooks, client eats, without the two ever coming into contact.
+
+This principal creates a project that is way more flexible and easier to debug!
+![Calc](images/calc.PNG)
+
 
 ## Tips
 - [Read more about solid](https://medium.com/@severinperez/maintainable-code-and-the-open-closed-principle-b088c737262)
