@@ -1,29 +1,28 @@
-export class Oven {
+export class ElectricOven {
     constructor() {
         this._isOn = false;
     }
-    // @ts-ignore
     on() {
-        this.lightGas();
+        this.electricityOn();
     }
     // @ts-ignore
     off() {
-        this.extinguishGas();
+        this.electricityOff();
     }
-    lightGas() {
+    electricityOn() {
         setTimeout(function () {
             // @ts-ignore
-            document.getElementById('target').innerHTML += "<p>" + new Date().getHours() + ":" + new Date().getMinutes() + " : THE GAS IS ON!</p>";
+            document.getElementById('target').innerHTML += "<p>" + new Date().getHours() + ":" + new Date().getMinutes() + " : THE ELECTRICITY IS ON!</p>";
         }, 1000);
-        console.log("THE GAS IS ON!"); //insert fart humor here
+        console.log("THE ELECTRICITY IS ON!");
         this._isOn = true;
     }
-    extinguishGas() {
+    electricityOff() {
         setTimeout(function () {
             // @ts-ignore
-            document.getElementById('target').innerHTML += "<p>" + new Date().getHours() + ":" + new Date().getMinutes() + " : THE GAS IS OFF!</p><hr>";
+            document.getElementById('target').innerHTML += "<p>" + new Date().getHours() + ":" + new Date().getMinutes() + " : THE ELECTRICITY IS OFF!</p><hr>";
         }, 3000);
-        console.log("THE GAS IS OFF!"); //insert fart humor here
+        console.log("THE ELECTRICITY IS OFF!");
         this._isOn = false;
     }
     bake(item) {
@@ -39,7 +38,7 @@ export class Oven {
                 // @ts-ignore
                 document.getElementById('target').innerHTML += "<p>" + new Date().getHours() + ":" + new Date().getMinutes() + " : there is no gas!</p>";
             }, 2000);
-            console.log("there is no gas!"); //insert fart humor here
+            console.log("there is no electricity!");
         }
     }
 }

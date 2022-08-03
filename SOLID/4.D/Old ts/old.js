@@ -30,7 +30,7 @@ class Oven {
     }
 }
 class Restaurant {
-    constructor(name) {
+    constructor(name, oven) {
         this._oven = new Oven();
         this._name = name;
     }
@@ -40,7 +40,7 @@ class Restaurant {
         this._oven.extinguishGas();
     }
 }
-let bakery = new Restaurant("Bakery");
+let bakery = new Restaurant("Bakery", new Oven());
 bakery.Cook("cookies");
 //Now if we want to add a new restaurant with an ELECTRIC cooker, we are gonna be in a hot mess ...
 /*

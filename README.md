@@ -267,11 +267,19 @@ This principal creates a project that is way more flexible and easier to debug!
    - Here I copied the switch statement from the old.ts and replaced the conditions for every possible login format.
 
 5. 4.D
-   - 
-   - 
-   - 
+   - I first made a Schema for myself how I would make the interface and classes work with each other.
+   - Made the mistake at first and adjusted a long the way the interface and classes. 
+   - First made an Oven class and added two public functions on | off that would call another function to light or extinguish the gas.
+   - Then made the ElectricOven and did the same only changed the name of the functions. 
+   - Made an interface with 3 methods (on, off and bake).
+   - Added the Restaurant with 2 properties (name, and type of oven), also added the cooking function and changed it to my interface.
+   - in the New.ts we can now call the new restaurant + a new oven and let it use to cook function.  
 
+   
 ## Things I've learned
+   - SOLID principles in and out.
+   - How to properly code with OOP.
    - Several Errors in the browser (exports could not be defined, failed to load modules).
    - Using Parcel and why we need it.
-   - OOP concepts and SOLID.
+
+## The END
