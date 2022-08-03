@@ -13,10 +13,10 @@ At this point you should no longer be surprised, but PHPStorm comes with support
 There are 2 ways of working with TypesScript in your IDE, the first option is to make it so all TypeScript files are compiled the moment you change something in the file.
 To do this go to ```File | Settings | Languages & Frameworks | TypeScript```. Make sure to check the correct checkbox.
 
-![install-phpstorm-on-change](images/install-phpstorm-1.png)
+![install-phpstorm-on-change](images/install-phpstorm-1.png) 
 
 Another option is to click on the "compile" button at the bottom of your editor. You can then either recompile the file your are currently in, or all files in the entire project.
-![install-phpstorm-compile-button](images/install-phpstorm-2.png)
+
 
 ### Working with Parcel
 Parcel is a web application bundler, that will compile all the JS code
@@ -24,7 +24,8 @@ Parcel is a web application bundler, that will compile all the JS code
 [You also need to install parcel](https://parceljs.org/getting-started/webapp/), after which you should be able to run `parcel index.html` in your project directory.
 
 ### SOLID
-SOLID is a set of 5 principles that helps you write good OOP code, and is considered one of the leading theories for modern code.
+SOLID is a set of 5 principles that helps you write good OOP code, and is considered one of the leading theories for modern code. 
+You can find the explanation on the end of the README file. First we will discuss OOP! 
 
 
 # What are these 4 Pillars of OOP
